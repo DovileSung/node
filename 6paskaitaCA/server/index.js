@@ -93,9 +93,12 @@ app.get("/sorted/:type", async (req, res) => {
 
 app.post("/", async (req, res) => {
   try {
-    const fakeCar = { brand: "BMW", model: "m3" };
+    const newCar = req.body;
+    if (!newCar.brand || !newCar.model) {
+      return res.status(400).send({ error: "Missing data" });
+    }
     const con = await client.connect();
-    const data = await con.db("demo1").collection("cars").insertOne(fakeCar);
+    const data = await con.db("demo1").collection("cars").insertOne(newCar);
     await con.close();
     res.send(data);
   } catch (error) {
