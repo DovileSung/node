@@ -1,5 +1,5 @@
 {
-  "name": "6paskaitaca",
+  "name": "exam",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.5.1",
+    "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
